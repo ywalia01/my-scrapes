@@ -1,11 +1,16 @@
-quotesjson = "[\n"
-
+quotesjson = "["
+temp = ""
+counter = 1
 with open('goodreads_dunequotes.txt', 'r') as f:
     for line in f:
         line = line.strip()
-        quotesjson += '\t{"quote": '
+        quotesjson += '{"id": "'
+        quotesjson += str(counter)
+        quotesjson += '",'
+        quotesjson += '"quote": '
         quotesjson += line
-        quotesjson += '},\n'
+        quotesjson += '},'
+        counter += 1
 
 quotesjson += "]"
 f.close()
